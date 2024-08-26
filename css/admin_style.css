@@ -1,0 +1,944 @@
+/* Memuat font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variabel warna */
+:root {
+   --main-color: #399918; /* hijau muda */
+   --teal: #008080; /* Teal */
+   --coral: #ff6347; /* Coral */
+   --black: #2c3e50; /* Abu-abu batu */
+   --white: #ffffff; /* Putih */
+   --light-color: #bdc3c7; /* Abu-abu perak */
+   --light-fon: #8e9092; /* Abu-abu perak */
+   --light-bg: #f0f4ed; /* Latar belakang putih krem */
+   --border: 0.2rem solid var(--black); /* Border */
+   --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Shadow kotak */
+}
+
+/* Reset CSS */
+* {
+    font-family: "Noto Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+/* Pemilihan teks */
+*::selection {
+    background-color: var(--main-color);
+    color: var(--white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+/* Tampilan umum */
+html {
+    font-size: 62.5%; /* Keep the base font size */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    background-color: var(--light-bg); /* Match the background color */
+    font-family: "Noto Sans", sans-serif; /* Apply the same font as in accounts */
+    color: var(--black); /* Set a default text color similar to accounts */
+}
+
+section {
+    padding: 2rem; /* Same padding as in the current styles */
+    max-width: 1200px; /* Ensure a maximum width to center the content */
+    margin: 0 auto; /* Center the section */
+  
+    border-radius: 10px; /* Match the border radius used in accounts */
+    box-shadow: var(--box-shadow); /* Apply the box shadow */
+}
+
+/* Gaya Heading */
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.7rem;
+    color: var(--black);
+}
+
+/* Gaya Tombol */
+.btn,
+.delete-btn,
+.option-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    color: var(--white);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn { background-color: var(--main-color); }
+.option-btn { background-color: var(--teal); }
+.delete-btn { background-color: var(--coral); }
+
+/* Hover tombol */
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover {
+    background-color: var(--black);
+}
+
+/* Grup tombol */
+.flex-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Kotak pesan */
+.message {
+    position: sticky;
+    top: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--light-bg);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    z-index: 1100;
+}
+
+.message span {
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.message i {
+    cursor: pointer;
+    color: var(--coral);
+    font-size: 2.5rem;
+}
+
+/* Hover ikon */
+.message i:hover {
+    color: var(--black);
+}
+
+/* Kotak kosong */
+.empty {
+    padding: 1.5rem;
+    background-color: var(--white);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    color: var(--coral);
+    border-radius: .5rem;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+/* Animasi masuk */
+@keyframes fadeIn {
+    0% { transform: translateY(1rem); }
+}
+
+/* Kontainer form */
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container form {
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    background-color: var(--white);
+    border-radius: .5rem;
+    width: 50rem;
+    border: var(--border);
+}
+
+.form-container form h3 {
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.form-container form p {
+    font-size: 1.8rem;
+    color: var(--light-fon);
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+}
+
+.form-container form .box {
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+    padding: 0 2rem; /* Menambahkan padding samping */
+}
+
+.header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header .flex .logo {
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: 700; /* Ketebalan font yang lebih kuat */
+}
+
+.header .flex .logo span {
+    color: var(--main-color);
+}
+
+.header .flex .navbar a {
+    margin: 0 1rem;
+    font-size: 1.8rem; /* Ukuran font sedikit lebih kecil untuk kesan elegan */
+    color: var(--black);
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    padding: 0.5rem 1rem; /* Menambahkan padding untuk efek hover */
+    border-radius: 4px; /* Membuat sudut border yang melengkung */
+}
+
+.header .flex .navbar a:hover {
+    color: var(--white);
+    background-color: var(--main-color); /* Latar belakang berubah saat hover */
+    transform: translateY(-3px); /* Efek angkat */
+}
+
+.header .flex .icons > * {
+    margin-left: 1rem;
+    font-size: 2.2rem; /* Ukuran ikon sedikit lebih kecil untuk proporsi yang lebih baik */
+    cursor: pointer;
+    color: var(--black);
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s; /* Menambahkan transisi untuk bayangan */
+}
+
+.header .flex .icons > *:hover {
+    color: var(--main-color);
+    transform: scale(1.1); /* Efek memperbesar ikon */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
+}
+
+.header .flex .icons a span {
+    font-size: 2rem;
+}
+
+.header .flex .profile {
+    position: absolute;
+    top: 120%;
+    right: 2rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    padding: 2rem;
+    width: 30rem;
+    padding-top: 1.2rem;
+    display: none;
+    animation: fadeIn .2s linear;
+}
+
+.header .flex .profile.active {
+    display: inline-block;
+}
+
+.header .flex .profile p {
+    text-align: center;
+    color: var(--black);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Tombol menu */
+#menu-btn {
+    display: none;
+}
+
+/* Kontainer dashboard */
+.dashboard .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: stretch;
+    
+}
+
+/* Kotak dalam kontainer dashboard */
+.dashboard .box-container .box {
+    padding: 2rem;
+    text-align: center;
+    border: var(--border);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Efek bayangan yang lebih halus */
+    border-radius: 1rem; /* Radius sudut lebih besar untuk tampilan modern */
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out; /* Transisi yang halus untuk efek hover */
+}
+
+/* Efek hover pada kotak */
+.dashboard .box-container .box:hover {
+    transform: translateY(-10px); /* Efek angkat saat hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih dalam saat hover */
+}
+
+/* Gaya untuk judul di dalam kotak */
+.dashboard .box-container .box h3 {
+    font-size: 2.5rem; /* Ukuran font yang lebih konsisten */
+    color: var(--main-color); /* Warna ungu muda untuk judul */
+    margin-bottom: 1rem; /* Spasi bawah untuk memisahkan dari elemen lain */
+}
+
+/* Gaya untuk span di dalam judul */
+.dashboard .box-container .box h3 span {
+    font-size: 1.8rem;
+    color: var(--black); /* Warna teks untuk span */
+}
+
+/* Gaya untuk paragraf di dalam kotak */
+.dashboard .box-container .box p {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--light-color); /* Latar belakang yang lebih terang untuk paragraf */
+    font-size: 1.6rem; /* Ukuran font yang sedikit lebih kecil */
+    color: var(--black); /* Warna teks yang lebih gelap */
+    margin: 1rem 0;
+}
+
+/* Kontainer produk baru */
+.add-products form {
+    max-width: 70rem;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.add-products form .flex {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.add-products form .flex .inputBox {
+    flex: 1 1 25rem;
+}
+
+.add-products form span {
+    font-size: 1.7rem;
+    color: var(--light-fon);
+}
+
+.add-products form .box {
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background-color: var(--light-color);
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-top: 1.5rem;
+}
+
+.add-products form .box p {
+    font-size: 2rem;
+    color: var(--light-fon);
+}
+
+
+
+/* Area teks */
+.add-products form textarea {
+    height: 5.4rem;
+    resize: none;
+}
+
+/* Kotak produk ditampilkan */
+.show-products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33rem);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Kotak produk */
+.show-products .box-container .box {
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    border: var(--border);
+    padding: 2rem;
+}
+
+/* Gambar produk */
+.show-products .box-container .box img {
+    width: 100%;
+    height: 20rem;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+/* Nama produk */
+.show-products .box-container .box .name {
+    font-size: 2rem;
+    color: var(--black);
+}
+
+/* Harga produk */
+.show-products .box-container .box .price {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: .5rem 0;
+}
+
+/* Detail produk */
+.show-products .box-container .box .details {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+}
+
+/* Form update produk */
+.update-product form {
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    border: var(--border);
+    padding: 2rem;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+/* Kontainer gambar */
+.update-product form .image-container {
+    margin-bottom: 2rem;
+}
+
+/* Gambar utama */
+.update-product form .image-container .main-image img {
+    height: 20rem;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* Gambar tambahan */
+.update-product form .image-container .sub-image {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+/* Hover gambar tambahan */
+.update-product form .image-container .sub-image img:hover {
+    transform: scale(1.1);
+}
+.stock {
+    font-size: 1rem; /* Adjust size as needed */
+    font-weight: bold;
+    color: #333; /* Dark color for better readability */
+    margin-top: 0.5rem; /* Space above stock info */
+    margin-bottom: 0.5rem; /* Space below stock info */
+    justify-content: end;
+    align-items: end;
+ }
+
+/* Kotak dalam form update */
+.update-product form .box {
+    width: 100%;
+    border-radius: .5rem;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    background-color: var(--light-color);
+    margin: 1rem 0;
+}
+
+/* Teks tambahan dalam form update */
+.update-product form span {
+    font-size: 1.7rem;
+    color: var(--light-color);
+}
+
+/* Area teks dalam form update */
+.update-product form textarea {
+    height: 15rem;
+    resize: none;
+}
+
+/* Kotak order */
+.orders .box-container {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 2fr));
+    gap: 1.5rem;
+    align-items: flex-start;
+   
+}
+
+/* Kotak dalam order */
+.orders .box-container .box {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out; /* Added transition for smoother hover effects */
+}
+
+
+/* Efek hover pada kotak order */
+.orders .box-container .box:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Pesan dalam order */
+.orders .box-container .box p {
+    margin: 8 px 0;
+    color: var(--black);
+    font-size: 2 rem;
+    text-align: center;
+    
+}
+
+/* Warna spesifik dalam pesan order */
+.orders .box-container .box p span {
+    color: var(--main-color);
+
+}
+/* CSS ADMIN PUNYA */
+
+.accounts {
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 20px;
+   
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.accounts h1.heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.7rem;
+    color: var(--black);
+}
+
+.accounts .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.accounts .box {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 150px; /* Menetapkan tinggi tetap untuk kotak */
+}
+
+.accounts .box:hover {
+    transform: translateY(-5px);
+}
+
+.accounts .box p {
+    margin: 8 px 0;
+    color: var(--black);
+    font-size: 2 rem;
+    text-align: center;
+}
+
+.accounts .box span {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.accounts .option-btn, .accounts .delete-btn {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2 rem;
+    transition: background-color 0.3s ease;
+}
+
+.accounts .option-btn {
+    background-color: var(--main-color);
+    color: var(--white);
+}
+
+.accounts .option-btn:hover {
+    background-color: #218838;
+}
+
+.accounts .delete-btn {
+    background-color: var(--coral);
+    color: var(--white);
+}
+
+.accounts .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.accounts .empty {
+    text-align: center;
+    color: var(--light-color);
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+
+/* Kontainer kontak */
+.contacts .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Kotak dalam kontak */
+.contacts .box-container .box {
+    padding: 2rem;
+    padding-top: 1rem;
+    border-radius: .5rem;
+    border: var(--border);
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+/* Pesan dalam kontak */
+.contacts .box-container .box p {
+    line-height: 1.5;
+    font-size: 2rem;
+    color: var(--light-color);
+    margin: 1rem 0;
+}
+
+/* Warna spesifik dalam pesan kontak */
+.contacts .box-container .box p span {
+    color: var(--main-color);
+}
+
+/* Media queries */
+@media (max-width: 991px) {
+
+    html {
+        font-size: 55%;
+        /* Mengurangi ukuran font pada layar kecil */
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    /* Tombol menu responsif */
+    #menu-btn {
+        display: inline-block;
+    }
+
+    /* Navbar responsif */
+    .header .flex .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        border-top: var(--border);
+        border-bottom: var(--border);
+        background-color: var(--white);
+        transition: .2s linear;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .flex .navbar a {
+        display: block;
+        margin: 2rem;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    html {
+        font-size: 50%;
+        /* Mengurangi ukuran font pada layar sangat kecil */
+    }
+
+    .heading {
+        font-size: 3.5rem;
+        /* Mengurangi ukuran judul pada layar kecil */
+    }
+
+    .flex-btn {
+        flex-flow: column;
+        /* Menata tombol menjadi vertikal pada layar kecil */
+        gap: 0;
+        /* Menghilangkan jarak antara tombol pada layar kecil */
+    }
+
+    /* Menyesuaikan tinggi area teks dalam form */
+    .add-products form textarea {
+        height: 15rem;
+    }
+
+    /* Menampilkan produk dalam satu kolom pada layar sangat kecil */
+    .show-products .box-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Menampilkan pesanan dalam satu kolom pada layar sangat kecil */
+    .orders .box-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Menampilkan akun dalam satu kolom pada layar sangat kecil */
+    /* .accounts .box-container {
+        grid-template-columns: 1fr;
+    } */
+
+    /* Menampilkan kontak dalam satu kolom pada layar sangat kecil */
+    .contacts .box-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.print-btn {
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.print-btn:hover {
+    background-color: var(--teal);
+}
+
+
+/* Sales Report Section */
+.sales-report {
+    padding: 30px; /* Space inside the container */
+    background: #f9f9f9; /* Light grey background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    max-width: 800px; /* Maximum width of the container */
+    margin: 20px auto; /* Center container with margin */
+}
+
+.sales-report .heading {
+    font-size: 2.4rem; /* Font size for the heading */
+    color: #333; /* Dark text color */
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.sales-report .box {
+    background: #fff; /* White background for the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    text-align: center; /* Center-align text inside the box */
+}
+
+.sales-report .box h3 {
+    font-size: 1.8rem; /* Font size for headings */
+    color:var(--main-color); /* Color for headings */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.sales-report .box p {
+    font-size: 1.6rem; /* Font size for paragraph text */
+    color: #333; /* Dark text color */
+    font-weight: bold; /* Bold text */
+    margin: 0 0 20px 0; /* Margin below the paragraph */
+}
+
+.sales-report .box form {
+    display: flex; /* Flexbox layout for the form */
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 15px; /* Space between form elements */
+}
+
+.sales-report .box label {
+    font-size: 1.4rem; /* Font size for labels */
+    color: #333; /* Dark text color */
+}
+
+.sales-report .box input[type="date"] {
+    padding: 10px; /* Space inside the input */
+    border-radius: 6px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border */
+    font-size: 1.4rem; /* Font size for input text */
+}
+
+.sales-report .box .btn {
+    padding: 12px 20px; /* Space inside the button */
+    font-size: 1.4rem; /* Font size for button text */
+    color: #fff; /* White text color */
+    background-color: var(--main-color); /* Primary color */
+    border: none; /* No border */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.sales-report .box .btn:hover {
+    background-color: var(--main-color); /* Darker color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.sales-report-p {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+ }
+
+ .sales-report-p .heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+ }
+
+ .sales-report-p .report-info {
+    margin-bottom: 20px;
+ }
+
+ .sales-report-p .report-info p {
+    font-size: 16px;
+    margin: 5px 0;
+ }
+
+ .sales-report-p .box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ }
+
+ .sales-report-p .box h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+ }
+
+ .sales-report-p .box table {
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ .sales-report-p .box table th,
+ .sales-report-p .box table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+ }
+
+ .sales-report-p .box table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+ }
+
+ .sales-report-p .box table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+ }
+
+ .sales-report-p .totals {
+    margin-top: 20px;
+ }
+
+ .sales-report-p .totals h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+ }
+
+ .sales-report-p .totals p {
+    font-size: 16px;
+    margin: 5px 0;
+ }
+
+ .sales-report-p .print-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+ }
+
+ .sales-report-p .print-btn:hover {
+    background-color: #0056b3;
+ }
+/* bukti pembayaran */
+.proof-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
